@@ -1,21 +1,46 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Password Generator</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Aesthetic Password Generator</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
+  <div class="glow-bg"></div>
+  <div class="card">
+    <h2>Secure Key Vault</h2>
+    <p class="subtitle">Generate strong, custom encryption keys instant</p>
 
-    <div class="container">
-        <h1>Password Generator</h1>
-
-        <input type="text" id="password" readonly>
-
-        <button onclick="generatePassword()">
-            Generate Password
-        </button>
+    <div class="display-box">
+      <input type="text" id="password" readonly placeholder="Click Generate..." />
+      <button id="copyBtn" title="Copy to Clipboard">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+      </button>
     </div>
 
-    <script src="script.js"></script>
+    <div class="controls">
+      <div class="control-group">
+        <div class="label-row">
+          <span>Password Length</span>
+          <span id="lengthVal">12</span>
+        </div>
+        <input type="range" id="length" min="6" max="32" value="12" />
+      </div>
+
+      <div class="checkbox-grid">
+        <label><input type="checkbox" id="uppercase" checked /> Uppercase (A-Z)</label>
+        <label><input type="checkbox" id="lowercase" checked /> Lowercase (a-z)</label>
+        <label><input type="checkbox" id="numbers" checked /> Numbers (0-9)</label>
+        <label><input type="checkbox" id="symbols" checked /> Symbols (!@#$)</label>
+      </div>
+    </div>
+
+    <button id="generateBtn" class="primary-btn">Generate Password</button>
+    <div id="toast">Copied to clipboard!</div>
+  </div>
+
+  <script src="script.js"></script>
 </body>
 </html>
